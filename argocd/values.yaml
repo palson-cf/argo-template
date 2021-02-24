@@ -15,6 +15,8 @@ global:
 controller:
   name: application-controller
 
+  enableStatefulSet: true
+
   ## Argo controller commandline flags
   args:
     statusProcessors: "20"
