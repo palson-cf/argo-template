@@ -50,7 +50,8 @@ controller:
       labels: {}
       servicePort: 8082
     serviceMonitor:
-      enabled: true
+      # enabled: true
+      enabled: false
     #   selector:
     #     prometheus: kube-prometheus
     #   namespace: monitoring
@@ -58,7 +59,8 @@ controller:
         release: cprom
 
     rules:
-      enabled: true
+      # enabled: true
+      enabled: false
       spec:
       - alert: ArgoAppMissing
         expr: |
@@ -264,7 +266,8 @@ server:
       labels: {}
       servicePort: 8083
     serviceMonitor:
-      enabled: true
+      # enabled: true
+      enabled: false
     #   selector:
     #     prometheus: kube-prometheus
     #   namespace: monitoring
@@ -476,7 +479,8 @@ repoServer:
       labels: {}
       servicePort: 8084
     serviceMonitor:
-      enabled: true
+      enabled: false
+      # enabled: true
     #   selector:
     #     prometheus: kube-prometheus
     #   namespace: monitoring
@@ -508,6 +512,7 @@ redis-ha:
   haproxy:
     enabled: true
     metrics:
-      enabled: true
+      # enabled: true
+      enabled: false
   image:
     tag: 5.0.8-alpine
