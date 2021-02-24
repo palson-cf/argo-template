@@ -1,0 +1,5 @@
+argo-cd:
+  controller:
+    enableStatefulSet: true
+
+ 
