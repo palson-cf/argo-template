@@ -1,0 +1,8 @@
+apiVersion: v2
+description: ArgoCD
+name: argocd-umbrella
+version: 0.1.0
+dependencies:
+- name: argocd
+  repository: https://argoproj.github.io/argo-helm/argocd
+  version: 2.15.0
