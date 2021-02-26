@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: argocd
+  name: cluster-autoscaler
   namespace: argocd
 spec:
   destination:
@@ -9,7 +9,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: charts/argo-cd
+    path: charts/cluster-autoscaler
     repoURL: https://github.com/palson-cf/argo-template
     targetRevision: HEAD
   syncPolicy:

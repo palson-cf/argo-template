@@ -1,0 +1,35 @@
+---
+namespace: kube-system
+
+nameOverride: cluster-autoscaler
+
+image:
+  repository: "k8s.gcr.io/autoscaling/cluster-autoscaler"
+  tag: v1.17.3
+
+rbac:
+  serviceAccount:
+    name: cluster-autoscaler
+
+extraArgs:
+  scale-down-delay-after-add: 10m
+  scale-down-unneeded-time: 10m
+
+cloudProvider: aws
+# awsRegion: {{ .Values.global.region }}
+awsRegion: us-east-1
+
+autoDiscovery:
+  # clusterName: {{ .Values.global.name }}
+  clusterName: control-plane-dev
+nodeSelector:
+  node-type: addons
+rbac:
+  serviceAccountAnnotations:
+    # eks.amazonaws.com/role-arn: "arn:aws:iam::{{ .Values.global.aws_account_id }}:role/{{ .Values.global.name }}-cluster-autoscaler"
+    eks.amazonaws.com/role-arn: "arn:aws:iam::559963890471:role/control-plane-dev-cluster-autoscaler"
+tolerations:
+  - effect: NoSchedule
+    key: codefresh.io
+    operator: Equal
+    value: addons

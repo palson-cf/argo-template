@@ -12,3 +12,5 @@ spec:
     path: charts/argo-workflows
     repoURL: https://github.com/palson-cf/argo-template
     targetRevision: HEAD
+  syncPolicy:
+    automated: {}
