@@ -1,6 +1,6 @@
 apiVersion: v2
 description: ArgoCD
-name: argocd-umbrella
+name: argocd
 version: 0.1.0
 dependencies:
 - name: argo-cd
